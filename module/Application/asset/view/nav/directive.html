@@ -1,0 +1,36 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ng-click="go('/')">packmule.io</a>
+        </div>
+        <div collapse="isCollapsed" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right" ng-if="hasIdentity()">
+                <li class="dropdown" dropdown>
+                    <a ng-click=";" class="dropdown-toggle" dropdown-toggle>
+                        {{ getIdentity().display_name }} <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a ng-href="http://www.bungie.net/{{ getIdentity().locale }}/User/Profile/{{ getIdentity().unique_name }}" target="_blank">
+                                Bungie Profile
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a ng-click="go('/logout')">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" ng-if="!hasIdentity()">
+                <li>
+                    <a ng-click="go('/login')">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

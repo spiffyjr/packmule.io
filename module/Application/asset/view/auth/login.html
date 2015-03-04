@@ -1,0 +1,39 @@
+<div class="page-header">
+    <h2>Login</h2>
+</div>
+
+<div class="row alert alert-info">
+    <div class="col-xs-12">
+        <p>
+            This information is required because Bungie does not provide a way for third parties to login to
+            their API services.
+        </p>
+        <p><strong>This site will never store your credentials!</strong></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <form ng-submit="onSubmit(data)">
+            <div class="form-group">
+                <label for="identity">Email / Username</label>
+                <input ng-model="data.identity" type="email" class="form-control" id="identity" placeholder="Email / Username">
+            </div>
+            <div class="form-group">
+                <label for="credential">Password</label>
+                <input ng-model="data.credential" type="password" class="form-control" id="credential" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <div class="radio">
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="data.platform" value="Psnid"> PlayStation
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="data.platform" value="Wlid"> Xbox
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Authenticate With Bungie</button>
+        </form>
+    </div>
+</div>

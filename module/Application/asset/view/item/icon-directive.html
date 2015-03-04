@@ -1,0 +1,14 @@
+<div
+    class="item-icon"
+    ng-class="{
+        complete: item.isGridComplete,
+        equipped: item.isEquipped,
+        'invalid-equipment': (itemDefinition.classType != 3 && itemDefinition.classType != character.characterBase.classType) || item.cannotEquipReason == 2
+    }"
+    style="background-image: url({{ icon }});"
+    hm-tap="onTap()"
+    hm-doubletap="onDoubleTap(item, definition)"
+    hm-press="onPress(item, definition)"
+>
+    <div class="stack-size" ng-if="item.stackSize > 1">{{ item.stackSize }}</div>
+</div>

@@ -1,0 +1,54 @@
+<div class="fhtt des des-item">
+    <div class="destt-cont">
+        <div class="destt-title destt-bg-{{ itemDefinition.tierType }}" style="background-image:url('http://www.bungie.net/{{ itemDefinition.icon }}')">
+            <h2 class="destt-has-icon">{{ itemDefinition.itemName }}</h2>
+            <h3 class="destt-title-quality">{{ itemDefinition.tierTypeName }}</h3>
+            <h3 class="destt-has-icon">{{ itemDefinition.itemTypeName }}</h3>
+            <div class="clearfix"></div>
+        </div>
+        <div class="destt-primary" ng-if="item.primaryStat">
+            <div class="destt-primary-min">{{ item.primaryStat.value }}</div>
+            <div class="destt-primary-max"><br/>{{ itemDefinitions.stats[item.primaryStat.statHash].statName }}</div>
+        </div>
+        <div ng-if="itemCharacter" class="text-info">
+            <strong>
+                Located on
+                {{ itemCharacter.characterLevel }}
+                {{ characterDefinitions.genders[itemCharacter.characterBase.genderHash].genderName }}
+                {{ characterDefinitions.races[itemCharacter.characterBase.raceHash].raceName }}
+                {{ characterDefinitions.classes[itemCharacter.characterBase.classHash].className }}
+            </strong>
+        </div>
+        <div ng-if="!itemCharacter">In Vault</div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="destt-right"></div>
+    <div class="destt-bottomright"></div>
+    <div class="destt-bottom">
+        <div class="row">
+            <div class="col-xs-6" ng-if="itemCharacter">
+                <button class="btn btn-sm btn-primary" ng-click="onMove(item, itemDefinition, itemCharacter.characterBase.characterId)">
+                    Move to Vault
+                </button>
+            </div>
+            <div class="col-xs-6" ng-if="item.characterId == activeCharacter.characterBase.characterId && item.cannotEquipReason == 0">
+                <button class="btn btn-sm btn-primary" ng-click="onEquip(item, itemDefinition, activeCharacter.characterBase.characterId)">
+                    Equip Item
+                </button>
+            </div>
+            <div class="col-xs-6" ng-repeat="character in characters" ng-if="character.characterBase.characterId != item.characterId">
+                <button class="btn btn-sm btn-primary" ng-click="onMove(item, itemDefinition, character.characterBase.characterId)">
+                    {{ character.characterLevel }}
+                    {{ characterDefinitions.genders[character.characterBase.genderHash].genderName }}
+                    {{ characterDefinitions.races[character.characterBase.raceHash].raceName }}
+                    {{ characterDefinitions.classes[character.characterBase.classHash].className }}
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <a target="_blank" href="http://www.destinydb.com/items/{{ item.itemHash }}">[ View on DestinyDB ]</a>
+            </div>
+        </div>
+    </div>
+</div>

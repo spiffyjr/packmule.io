@@ -1,0 +1,99 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-group">
+                <select class="form-control"
+                    ng-options="getCharacterLabel(character) for (characterId, character) in characters"
+                    ng-model="activeCharacter">
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="form-group">
+                <input type="text" class="form-control" ng-model="nameQuery" placeholder="Item name...">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6">
+            <div ng-repeat="bucket in buckets | invalidBucket:definitions | bucketCategory:definitions:3 | orderBy:bucketOrder" ng-if="bucket.items.length > 0">
+                <h4>{{ definitions.buckets[bucket.bucketHash].bucketName }}</h4>
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2" ng-repeat="item in bucket.items | itemEquipped | character:activeCharacter.characterBase.characterId ">
+                                <item-icon
+                                    item-definitions="definitions"
+                                    character-definitions="characterDefinitions"
+                                    item="item"
+                                    active-character="activeCharacter"
+                                    characters="characters">
+                                </item-icon>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2" ng-repeat="item in bucket.items | itemName:definitions.items:nameQuery | itemUnequipped | character:activeCharacter.characterBase.characterId ">
+                                <item-icon
+                                    item-definitions="definitions"
+                                    character-definitions="characterDefinitions"
+                                    item="item"
+                                    active-character="activeCharacter"
+                                    characters="characters">
+                                </item-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div ng-repeat="bucket in buckets | invalidBucket:definitions | bucketCategory:definitions:1 | orderBy:bucketOrder" ng-if="bucket.items.length > 0">
+                    <h4>{{ definitions.buckets[bucket.bucketHash].bucketName }}</h4>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2" ng-repeat="item in bucket.items | itemName:definitions.items:nameQuery | itemUnequipped | character:activeCharacter.characterBase.characterId">
+                            <item-icon
+                                    item-definitions="definitions"
+                                    character-definitions="characterDefinitions"
+                                    item="item"
+                                    active-character="activeCharacter"
+                                    characters="characters">
+                            </item-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div ng-repeat="bucket in buckets | invalidBucket:definitions:true | bucketCategory:definitions:3 | orderBy:bucketOrder" ng-if="bucket.items.length > 0">
+                <h4>{{ definitions.buckets[bucket.bucketHash].bucketName }}</h4>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2" ng-repeat="item in bucket.items | itemName:definitions.items:nameQuery | itemUnequipped | notCharacter:activeCharacter.characterBase.characterId">
+                        <item-icon
+                            item-definitions="definitions"
+                            character-definitions="characterDefinitions"
+                            item="item"
+                            active-character="activeCharacter"
+                            characters="characters">
+                        </item-icon>
+                    </div>
+                </div>
+            </div>
+            <div ng-repeat="bucket in buckets | invalidBucket:definitions:true | bucketCategory:definitions:1 | orderBy:bucketOrder" ng-if="bucket.items.length > 0">
+                <h4>{{ definitions.buckets[bucket.bucketHash].bucketName }}</h4>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2" ng-repeat="item in bucket.items | itemName:definitions.items:nameQuery | itemUnequipped | notCharacter:activeCharacter.characterBase.characterId">
+                        <item-icon
+                                item-definitions="definitions"
+                                character-definitions="characterDefinitions"
+                                item="item"
+                                active-character="activeCharacter"
+                                characters="characters">
+                        </item-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

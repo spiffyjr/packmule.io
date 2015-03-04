@@ -1,0 +1,128 @@
+body {
+    padding-top: 65px;
+}
+
+.fhtt.des.des-item {
+    width: inherit;
+}
+
+.destt-bottom {
+    padding-bottom: 5px;
+}
+
+.destt-bottom button {
+    margin: 5px 0 5px 0;
+}
+
+.item-popup {
+    padding-bottom: 160px;
+    padding-top: 160px;
+}
+
+.item-popup .ngdialog-content {
+    position: relative;
+    background-color: transparent;
+    margin: 0 auto;
+    width: 390px;
+    max-width: 95%;
+}
+
+.item-popup h1.page-header {
+    font-size: 18px;
+}
+
+.item-container {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 50px;
+    z-index: 1000;
+    background-color: white;
+    border-bottom: 2px solid #080808;
+    padding-top: 5px;
+    padding-bottom: 5px
+}
+
+.item-list .bucket {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.item-icon {
+    background-repeat: no-repeat;
+    background-size: 56px;
+    border: 4px solid #ddd;
+    cursor: pointer;
+    height: 64px;
+    width: 64px;
+    margin: 0 auto;
+    margin-bottom: 3px;
+    text-align: center;
+}
+
+.item-icon .stack-size {
+    background-color: #F5f5f5;
+    position: absolute;
+    height: 24px;
+    min-width: 20px;
+    padding: 0 3px 0 3px;
+    text-align: center;
+}
+
+.item-icon.equipped {
+    cursor: default;
+}
+
+.item-icon.invalid-equipment {
+    opacity: 0.35;
+}
+
+.item-icon.complete {
+    border: 4px solid rgb(245, 220, 86);
+}
+
+.form-control-feedback.fa {
+    margin-top: 4px;
+}
+
+.emblem {
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+.emblem-background {
+    display:block;
+    color: #fff !important;
+    height: 66px;
+    background-repeat: no-repeat;
+    position: relative;
+    border: none;
+    margin: 0 auto;
+}
+
+.emblem-icon {
+    height: 66px;
+    position: absolute;
+    top:0;
+    left:0;
+    width: 66px;
+    background-size:100%;
+}
+
+.emblem-text {
+    background-color: rgba(0, 0, 0, 0.10);
+    position: absolute;
+    left: 126px;
+    top: 7px;
+    height: 45px;
+    width: 100%;
+}
+
+.emblem-name {
+    position: relative;
+    right: 5px;
+    top: 0;
+    text-align:right;
+    font-size:18px;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 1);
+}
